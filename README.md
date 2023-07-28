@@ -124,3 +124,104 @@ function MessageComponent() {
 
 export default MessageComponent;
 ```
+
+#### dialog 打开或者保存相关属性
+
+filter: 文件对话框的扩展过滤器
+
+filter.extensions: `string[]` 例如:图片后缀 `['svg', 'png']`
+
+filter.name: `string` 例如: `'Image'`
+
+#### open 弹窗函数
+使用方式：创建 open.jsx 文件
+```jsx
+import { open } from '@tauri-apps/api/dialog';
+
+function OpenComponent() {
+  async function openImageDialog() {
+    const filePath = await open({
+      multiple: false,
+      filters: [
+        {
+          name: 'Image',
+          extensions: ['png', 'svg', 'jpeg', 'jpg'],
+        },
+      ],
+    });
+    console.log(filePath);
+  }
+
+  async function openDirDialog() {
+    const dirPath = await open({
+      directory: true,
+    });
+    console.log(dirPath);
+  }
+
+  async function openDialog() {
+    const filePath = await open({});
+    console.log(filePath);
+  }
+
+  return (
+    <div>
+      <button className='btn' onClick={openImageDialog}>
+        打开图片弹窗
+      </button>
+      <button className='btn' onClick={openDirDialog}>
+        打开文件夹弹窗
+      </button>
+      <button className='btn' onClick={openDialog}>
+        open 弹窗
+      </button>
+    </div>
+  );
+}
+
+export default OpenComponent;
+```
+#### save 弹窗函数
+使用方式：创建 save.jsx 文件
+```jsx
+import { save } from '@tauri-apps/api/dialog';
+
+function SaveComponent() {
+  async function saveImageDialog() {
+    const filePath = await save({
+      filters: [
+        {
+          name: 'Image',
+          extensions: ['png', 'svg', 'webp', 'jpeg'],
+        },
+      ],
+    });
+    console.log(filePath);
+  }
+
+  async function saveDialog() {
+    const dirPath = await save({
+      filters: [
+        {
+          name: 'All',
+          extensions: ['*'],
+        },
+      ],
+    });
+    console.log(dirPath);
+  }
+
+  return (
+    <div className='dialog'>
+      <button className='btn' onClick={saveDialog}>
+        save 弹窗
+      </button>
+      <button className='btn' onClick={saveImageDialog}>
+        save 图片弹窗
+      </button>
+    </div>
+  );
+}
+
+export default SaveComponent;
+```
