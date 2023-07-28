@@ -1,6 +1,7 @@
 import AskComponent from './ask';
 import ConfirmComponent from './confirm';
 import MessageComponent from './message';
+import OpenComponent from './open';
 import './dialog.css';
 
 const Dialog = () => {
@@ -10,6 +11,7 @@ const Dialog = () => {
       <AskComponent />
       <ConfirmComponent />
       <MessageComponent />
+      <OpenComponent />
     </div>
   );
 };
