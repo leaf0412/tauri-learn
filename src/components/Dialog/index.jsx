@@ -2,6 +2,7 @@ import AskComponent from './ask';
 import ConfirmComponent from './confirm';
 import MessageComponent from './message';
 import OpenComponent from './open';
+import SaveComponent from './save';
 import './dialog.css';
 
 const Dialog = () => {
@@ -12,6 +13,7 @@ const Dialog = () => {
       <ConfirmComponent />
       <MessageComponent />
       <OpenComponent />
+      <SaveComponent />
     </div>
   );
 };
