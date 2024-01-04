@@ -1,5 +1,6 @@
 import GetSoftwareName from './GetSoftwareName';
 import GetTauriVersion from './GetTauriVersion';
+import GetSoftwareVersion from './GetSoftwareVersion';
 
 import './index.css';
 
@@ -10,6 +11,7 @@ const MetaData = () => {
       <div className='metadata'>
         <GetSoftwareName />
         <GetTauriVersion />
+        <GetSoftwareVersion />
       </div>
     </div>
   );
