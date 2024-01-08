@@ -17,6 +17,11 @@
         "show": true,
         "hide": true
       },
+      "clipboard": {
+        "all": true,
+        "writeText": true,
+        "readText": true
+      },
       "path": {
         "all": true
       },
